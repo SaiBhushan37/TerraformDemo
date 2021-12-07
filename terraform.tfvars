@@ -5,4 +5,4 @@
  instancesize = "t2.micro" 
  enable_public_ip = "true"
  instancename = "Terraform machine"
- amiid = "0a5899928eba2e7bd"
+ amiid = "ami-002068ed284fb165b"
