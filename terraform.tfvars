@@ -1,8 +1,5 @@
- subnetcidr1 ="10.50.1.0/24"
- subnetcidr2 ="10.50.3.0/24"
- subnetcidr3 ="10.50.4.0/24"
  vpccidr ="10.50.0.0/16"
  instancesize = "t2.micro" 
  enable_public_ip = "true"
- instancename = "Terraform machine"
  amiid = "ami-002068ed284fb165b"
+ 

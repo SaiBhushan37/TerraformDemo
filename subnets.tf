@@ -1,24 +1,22 @@
-resource "aws_subnet" "Subnet-1" {
-  cidr_block = var.subnetcidr1
+resource "aws_subnet" "PublicSubnet" {
+  count = length(var.subnetcidr)
+  cidr_block = element(var.subnetcidr,count.index)
     vpc_id     = aws_vpc.Terraform-Main.id
-    availability_zone = "us-east-2a"
+    availability_zone = element(var.availability_zone,count.index)
     tags = {
-    Name = "Terraform Public Subnet 1"
+    Name = "publicsubnets-${count.index+1}"
   }
 }
-resource "aws_subnet" "Subnet-2" {
-  cidr_block = var.subnetcidr2
+resource "aws_subnet" "privateSubnet" {
+  count = length(var.subnetcidr)
+  cidr_block = element(var.Privatesubnetcidr,count.index)
     vpc_id     = aws_vpc.Terraform-Main.id
-    availability_zone = "us-east-2a"
+    availability_zone = element(var.availability_zone,count.index)
     tags = {
-    Name = "Terraform Public Subnet 1"
+    Name = "privatesubnet-${count.index+1}"
   }
 }
-resource "aws_subnet" "Subnet-3" {
-  cidr_block = var.subnetcidr3
-    vpc_id     = aws_vpc.Terraform-Main.id
-    availability_zone = "us-east-2a"
-    tags = {
-    Name = "Terraform Public Subnet 1"
-  }
-}
+
+
+
+
